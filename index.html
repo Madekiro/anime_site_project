@@ -9,80 +9,87 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="index-css.css">
+    <div class="title-header">
+        MyAnime
+        <!-- <img src="recources/title-image.png"> -->
+    </div>
+    <nav role="navigation" class="navbar navbar-expand-md ">
 
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#">MyAnime</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#news">Новини</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         Жанри
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#genre">Бойові мистецтва</a>
-                        <a class="dropdown-item" href="#genre">Війна</a>
-                        <a class="dropdown-item" href="#genre">Драма</a>
-                        <a class="dropdown-item" href="#genre">Детектив</a>
-                        <a class="dropdown-item" href="#genre">Історія</a>
-                        <a class="dropdown-item" href="#genre">Комедія</a>
-                        <a class="dropdown-item" href="#genre">Меха</a>
-                        <a class="dropdown-item" href="#genre">Містика</a>
-                        <a class="dropdown-item" href="#genre">Махо-шьоджо</a>
-                        <a class="dropdown-item" href="#genre">Музика</a>
-                        <a class="dropdown-item" href="#genre">Повсякденність</a>
-                        <a class="dropdown-item" href="#genre">Пригоди</a>
-                        <a class="dropdown-item" href="#genre">Романтика</a>
-                        <a class="dropdown-item" href="#genre">Шьонен</a>
-                        <a class="dropdown-item" href="#genre">Шьоджо</a>
-                        <a class="dropdown-item" href="#genre">Спорт</a>
-                        <a class="dropdown-item" href="#genre">Триллер</a>
-                        <a class="dropdown-item" href="#genre">Жахи</a>
-                        <a class="dropdown-item" href="#genre">Фентезі</a>
-                        <a class="dropdown-item" href="#genre">Школа</a>
+                    <div class="dropdown-menu" aria-labelledby="genreDropdown">
+                        <div class="column">
+                            <a class=" dropdown-item" href="#genre">Бойові мистецтва</a>
+                            <a class="dropdown-item" href="#genre">Війна</a>
+                            <a class="dropdown-item" href="#genre">Драма</a>
+                            <a class="dropdown-item" href="#genre">Детектив</a>
+                            <a class="dropdown-item" href="#genre">Комедія</a>
+                        </div>
+                        <div class="column">
+                            <a class="dropdown-item" href="#genre">Меха</a>
+                            <a class="dropdown-item" href="#genre">Історія</a>
+                            <a class="dropdown-item" href="#genre">Містика</a>
+                            <a class="dropdown-item" href="#genre">Махо-шьоджо</a>
+                            <a class="dropdown-item" href="#genre">Музика</a>
+                        </div>
+                        <div class="column">
+                            <a class="dropdown-item" href="#genre">Повсякденність</a>
+                            <a class="dropdown-item" href="#genre">Пригоди</a>
+                            <a class="dropdown-item" href="#genre">Романтика</a>
+                            <a class="dropdown-item" href="#genre">Шьонен</a>
+                            <a class="dropdown-item" href="#genre">Шьоджо</a>
+                            
+                        </div>
+                        <div class="column">
+                            <a class="dropdown-item" href="#genre">Спорт</a>
+                            <a class="dropdown-item" href="#genre">Триллер</a>
+                            <a class="dropdown-item" href="#genre">Жахи</a>
+                            <a class="dropdown-item" href="#genre">Фентезі</a>
+                            <a class="dropdown-item" href="#genre">Школа</a>
+                        </div>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Рік
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#year">1971</a>
-                        <a class="dropdown-item" href="#year">1972</a>
-                        <a class="dropdown-item" href="#year">2021</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#top">Топ Аніме</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contacts">Контакти</a>
                 </li>
             </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#login">Вхід</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#login">Реєстрація</a>
+                </li>
+            </ul>
         </div>
     </nav>
-    <div class="title-image">
-
-        <img src="recources/title-image.png">
-    </div>
-
 </head>
 
 <body>
-    <div class="row">
-        <!-- sidebar -->
-        <div class="column">
-            Sidebar
-        </div>
-        <!-- main content -->
-        <div class="column">
-            <div id="news">
-                News
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                Sidebar
             </div>
-            <div id="contacts">
-                Contacts
-                hitexden@gmail.com
+            <div class="col-8">
+                <div id="news">
+                    News
+                </div>
+                <div id="contacts">
+                    Contacts
+                    hitexden@gmail.com
+                </div>
             </div>
         </div>
     </div>
