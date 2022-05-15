@@ -1,3 +1,10 @@
+<?php 
+    $conn = mysqli_connect('localhost', 'madekiro', 'pvost542','anime');
+    if(!$conn){
+        echo 'Connection Error: ' . mysqli_connect_error();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="ua">
 
@@ -46,7 +53,7 @@
                             <a class="dropdown-item" href="#genre">Романтика</a>
                             <a class="dropdown-item" href="#genre">Шьонен</a>
                             <a class="dropdown-item" href="#genre">Шьоджо</a>
-                            
+
                         </div>
                         <div class="column">
                             <a class="dropdown-item" href="#genre">Спорт</a>
@@ -66,10 +73,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#login">Вхід</a>
+                    <a class="nav-link" href="login_form.html">Вхід</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#login">Реєстрація</a>
+                    <a class="nav-link" href="sign_up_form.html">Реєстрація</a>
                 </li>
             </ul>
         </div>
@@ -77,6 +84,7 @@
 </head>
 
 <body>
+    
     <div class="container">
         <div class="row">
             <div class="col-4">
@@ -85,6 +93,7 @@
             <div class="col-8">
                 <div id="news">
                     News
+                    
                 </div>
                 <div id="contacts">
                     Contacts
