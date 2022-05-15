@@ -1,8 +1,16 @@
-<?php 
-    $conn = mysqli_connect('localhost', 'madekiro', 'pvost542','anime');
-    if(!$conn){
-        echo 'Connection Error: ' . mysqli_connect_error();
-    }
+<?php
+$conn = mysqli_connect('localhost', 'madekiro', 'pvost542', 'anime');
+if (!$conn) {
+    echo 'Connection Error: ' . mysqli_connect_error();
+}
+$sql = 'SELECT title, img_url, link from animes where aired like "2020" or "2021" limit 30';
+$result = mysqli_query($conn, $sql);
+$animes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+mysqli_free_result($result);
+mysqli_close($conn);
+
+// print_r($animes)
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +21,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyAnime</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="index-css.css">
     <div class="title-header">
         MyAnime
@@ -28,8 +35,7 @@
                     <a class="nav-link" href="#news">Новини</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Жанри
                     </a>
                     <div class="dropdown-menu" aria-labelledby="genreDropdown">
@@ -84,17 +90,66 @@
 </head>
 
 <body>
-    
+
     <div class="container">
         <div class="row">
-            <div class="col-4">
-                Sidebar
-            </div>
             <div class="col-8">
-                <div id="news">
-                    News
+                <table class="table">
+                <?php 
+                $i = 1;
+                while($i<26){ ?>
+                    <tr>
+                    <?php while($i<6){ ?>
+                        <td>
+                            <div class="bg-image hover-overlay">
+                                <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive">
+                                <a href="#!">
+                                    <div class="mask" style="background-color: black"></div>
+                                </a>
+                            </div>
+                            <?php echo htmlspecialchars($animes[$i]['title']) ?>
+                        </td>
+                    <?php ++$i;} ?>
+                    </tr>
+                    <tr>
+                    <?php while($i<11){ ?>
+                        <td style="width:20%">
+                                <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive">
+
+                                <?php echo htmlspecialchars($animes[$i]['title']) ?>
+                        </td>
+                    <?php ++$i;} ?>
+                    </tr>
+                    <tr>
+                    <?php while($i<16){ ?>
+                        <td style="width:20%">
+                                <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive">
+                            
+                                <?php echo htmlspecialchars($animes[$i]['title']) ?>
+                        </td>
+                    <?php ++$i;} ?>
+                    </tr>
+                    <tr>
+                    <?php while($i<21){ ?>
+                        <td style="width:20%">
+                                <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive">
+
+                                <?php echo htmlspecialchars($animes[$i]['title']) ?>
+                        </td>
+                    <?php ++$i;} ?>
+                    </tr>
+                    <tr>
+                    <?php while($i<26){ ?>
+                        <td style="width:20%">
+                                <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive">
+
+                                <?php echo htmlspecialchars($animes[$i]['title']) ?>
+                        </td>
+                    <?php ++$i;} ?>
+                    </tr>
+                <?php ++$i;} ?>
                     
-                </div>
+                </table>
                 <div id="contacts">
                     Contacts
                     hitexden@gmail.com
@@ -102,15 +157,9 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"
-        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 
 </html>

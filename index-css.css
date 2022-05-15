@@ -77,4 +77,8 @@ body {
     .nav>li {
         display: inline;
     }
+    
+}
+table td{
+    min-width:150px;
 }
