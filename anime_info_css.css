@@ -1,0 +1,16 @@
+.bodyp
+{
+    font: 15px Comic Sans MS;color: #76FCB5;
+    text-align: justify;
+}
+
+.rightcolumn {
+    float: right;
+    width: 75%;
+    padding-left: 20px;
+  }
+
+.leftcolumn {
+    float: left;
+    width: 25%;
+  }
