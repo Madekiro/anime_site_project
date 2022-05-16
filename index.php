@@ -8,6 +8,9 @@ $_SESSION['conn'] = new mysqli(
     $config['DB_NAME'],
     3306
 );
+if(!isset($_SESSION['loggedin'])){
+    $_SESSION['loggedin'] = false;
+}
 
 $query = 'SELECT title, img_url, link from animes where aired like "2020" or "2021" limit 30';
 $result = mysqli_query($_SESSION['conn'], $query);
@@ -26,8 +29,8 @@ mysqli_free_result($result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyAnime</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="index-css.css">
-    <link rel="stylesheet" href="hoveroverlay.css">
+    <link rel="stylesheet" href="styles\index-css.css">
+    <link rel="stylesheet" href="styles\hoveroverlay.css">
     <div class="title-header">
         <a href="index.php">MyAnime</a>
         <!-- <img src="recources/title-image.png"> -->
@@ -83,12 +86,21 @@ mysqli_free_result($result);
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="login_form.html">Вхід</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="sign_up_form.html">Реєстрація</a>
-                </li>
+                <?php if ($_SESSION['loggedin']) { ?>
+                    <li class="nav-item">
+                    Доброго здоров'я, <?= $_SESSION['name'] ?>!
+                    </li>
+                    <li class="nav-item">
+                        <a href="logout.php">Вихід</a>
+                    </li>
+                <?php } else { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login_form.html">Вхід</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sign_up_form.html">Реєстрація</a>
+                    </li>
+                <?php } ?>
             </ul>
         </div>
     </nav>

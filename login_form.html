@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="ua">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyAnime</title>
-    <link rel="stylesheet" href="sign_up_form_css.css">
+    <link rel="stylesheet" href="styles\sign_up_form_css.css">
 </head>
-<body>   
-        <p class="texto">Вхід</p>
-<div class="Registr">
-<form method="post" action="/cgi-bin/data">
 
-<span class="fontawesome-user"></span><input type="text" required placeholder="Нікнейм" autocomplete="off"> 
-<span class="fontawesome-lock"></span><input type="password" name="password" id="password" required placeholder="Пароль" autocomplete="off"> 
-			<input type="submit" value="Війти">
+<body>
+    <p class="texto">Вхід</p>
+    <div class="Registr">
+        <form action="authenticate.php" method="post">
+            <div class="form-group">
+                <span class="fontawesome-user"></span>
+                <input type="text" name="username" required placeholder="Нікнейм" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <span class="fontawesome-lock"></span>
+                <input type="password" name="password" id="password" required placeholder="Пароль" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Увійти">
+            </div>
+
 </body>
+
 </html>

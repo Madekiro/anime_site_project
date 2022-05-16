@@ -29,8 +29,8 @@ mysqli_free_result($result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyAnime</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="index-css.css">
-    <link rel="stylesheet" href="anime_info_css.css">
+    <link rel="stylesheet" href="styles\index-css.css">
+    <link rel="stylesheet" href="styles\anime_info_css.css">
     <div class="title-header">
         <a href="index.php">MyAnime</a>
             <!-- <img src="recources/title-image.png"> -->
@@ -86,12 +86,18 @@ mysqli_free_result($result);
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#login">Вхід</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#login">Реєстрація</a>
-                </li>
+                <?php if ($_SESSION['loggedin']) { ?>
+                    <li class="nav-item">
+                    Доброго здоров'я, <?= $_SESSION['name'] ?>!
+                    </li>
+                <?php } else { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sites\login_form.html">Вхід</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sites\sign_up_form.html">Реєстрація</a>
+                    </li>
+                <?php } ?>
             </ul>
         </div>
     </nav>
