@@ -94,3 +94,10 @@ body {
     background-size: cover;
     background: url("https://i.pinimg.com/originals/8b/c8/ca/8bc8ca5e5fed7d59a770ca218bd9dfe1.jpg") no-repeat center center fixed;
 }
+a{
+    color: white;
+}
+a:hover{
+    color:black;
+    
+}
