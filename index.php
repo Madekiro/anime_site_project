@@ -1,10 +1,11 @@
 <?php
-$conn = mysqli_connect('localhost', 'madekiro', 'pvost542', 'anime');
-if (!$conn) {
-    echo 'Connection Error: ' . mysqli_connect_error();
-}
-$sql = 'SELECT title, img_url, link from animes where aired like "2020" or "2021" limit 30';
-$result = mysqli_query($conn, $sql);
+include "config.php";
+
+$conn = new mysqli($config['DB_SERVER'],$config['DB_USERNAME'],
+$config['DB_PASSWORD'],$config['DB_NAME'],3306);
+
+$query = 'SELECT title, img_url, link from animes where aired like "2020" or "2021" limit 30';
+$result = mysqli_query($conn, $query);
 $animes = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 mysqli_free_result($result);
@@ -23,6 +24,7 @@ mysqli_close($conn);
     <title>MyAnime</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="index-css.css">
+    <link rel="stylesheet" href="hoveroverlay.css">
     <div class="title-header">
         MyAnime
         <!-- <img src="recources/title-image.png"> -->
@@ -90,65 +92,82 @@ mysqli_close($conn);
 </head>
 
 <body>
-
+    <!-- <img src="https://i.pinimg.com/originals/8b/c8/ca/8bc8ca5e5fed7d59a770ca218bd9dfe1.jpg" id="bg"> -->
     <div class="container">
         <div class="row">
             <div class="col-8">
-                <table class="table">
-                <?php 
-                $i = 1;
-                while($i<26){ ?>
-                    <tr>
-                    <?php while($i<6){ ?>
-                        <td>
-                            <div class="bg-image hover-overlay">
-                                <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive">
-                                <a href="#!">
-                                    <div class="mask" style="background-color: black"></div>
-                                </a>
-                            </div>
-                            <?php echo htmlspecialchars($animes[$i]['title']) ?>
-                        </td>
-                    <?php ++$i;} ?>
-                    </tr>
-                    <tr>
-                    <?php while($i<11){ ?>
-                        <td style="width:20%">
-                                <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive">
+                <table class="table" height="100%">
+                    <?php
+                    $i = 1;
+                    while ($i < 26) { ?>
+                        <tr>
+                            <?php while ($i < 6) { ?>
+                                <td>
+                                    <div class="hovereffect">
+                                        <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive" height="100%">
+                                        <div class="overlay">
+                                            <?php echo htmlspecialchars($animes[$i]['title']) ?>
+                                        </div>
+                                    </div>
+                                </td>
+                            <?php ++$i;
+                            } ?>
+                        </tr>
+                        <tr>
+                            <?php while ($i < 11) { ?>
+                                <td>
+                                    <div class="hovereffect">
+                                        <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive" height="100%">
+                                        <div class="overlay">
+                                            <?php echo htmlspecialchars($animes[$i]['title']) ?>
+                                        </div>
+                                    </div>
+                                </td>
+                            <?php ++$i;
+                            } ?>
+                        </tr>
+                        <tr>
+                            <?php while ($i < 16) { ?>
+                                <td>
+                                    <div class="hovereffect">
+                                        <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive" height="100%">
+                                        <div class="overlay">
+                                            <?php echo htmlspecialchars($animes[$i]['title']) ?>
+                                        </div>
+                                    </div>
+                                </td>
+                            <?php ++$i;
+                            } ?>
+                        </tr>
+                        <tr>
+                            <?php while ($i < 21) { ?>
+                                <td>
+                                    <div class="hovereffect">
+                                        <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive" height="100%">
+                                        <div class="overlay">
+                                            <?php echo htmlspecialchars($animes[$i]['title']) ?>
+                                        </div>
+                                    </div>
+                                </td>
+                            <?php ++$i;
+                            } ?>
+                        </tr>
+                        <tr>
+                            <?php while ($i < 26) { ?>
+                                <td>
+                                    <div class="hovereffect">
+                                        <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive" height="100%">
+                                        <div class="overlay">
+                                            <?php echo htmlspecialchars($animes[$i]['title']) ?>
+                                        </div>
+                                    </div>
+                                </td>
+                            <?php ++$i;
+                            } ?>
+                        </tr>
+                    <?php ++$i;
+                    } ?>
 
-                                <?php echo htmlspecialchars($animes[$i]['title']) ?>
-                        </td>
-                    <?php ++$i;} ?>
-                    </tr>
-                    <tr>
-                    <?php while($i<16){ ?>
-                        <td style="width:20%">
-                                <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive">
-                            
-                                <?php echo htmlspecialchars($animes[$i]['title']) ?>
-                        </td>
-                    <?php ++$i;} ?>
-                    </tr>
-                    <tr>
-                    <?php while($i<21){ ?>
-                        <td style="width:20%">
-                                <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive">
-
-                                <?php echo htmlspecialchars($animes[$i]['title']) ?>
-                        </td>
-                    <?php ++$i;} ?>
-                    </tr>
-                    <tr>
-                    <?php while($i<26){ ?>
-                        <td style="width:20%">
-                                <img src="<?php echo htmlspecialchars($animes[$i]['img_url']) ?>" class="img-responsive">
-
-                                <?php echo htmlspecialchars($animes[$i]['title']) ?>
-                        </td>
-                    <?php ++$i;} ?>
-                    </tr>
-                <?php ++$i;} ?>
-                    
                 </table>
                 <div id="contacts">
                     Contacts

@@ -89,7 +89,6 @@
         <p class="bodyp"> Тип </p>
         <p class="bodyp"> Кількість серій </p>
         <p class="bodyp"> Рейтинг </p>
-        <p class="bodyp"> </p>
     </div>
     <div class="container">
         <div class="row">
