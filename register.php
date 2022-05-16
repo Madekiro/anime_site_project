@@ -47,6 +47,8 @@ if ($stmt = $_SESSION['conn']->prepare('SELECT id, password FROM users WHERE use
             $stmt->bind_param('sss', $_POST['username'], $password, $_POST['email']);
             $stmt->execute();
             echo 'You have successfully registered, you can now login!';
+            sleep(3);
+            header("Location: index.php");
         } else {
             // Something is wrong with the sql statement, check to make sure users table exists with all 3 fields.
             echo 'Could not prepare statement!';

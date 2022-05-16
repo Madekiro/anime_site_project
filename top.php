@@ -12,14 +12,13 @@ if(!isset($_SESSION['loggedin'])){
     $_SESSION['loggedin'] = false;
 }
 
-$query = 'SELECT title, img_url, link from animes where aired like "2020" or "2021" limit 30';
+$query = 'SELECT title, img_url, link from animes order by members desc limit 30';
 $result = mysqli_query($_SESSION['conn'], $query);
 $animes = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 mysqli_free_result($result);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="ua">
 
@@ -79,7 +78,7 @@ mysqli_free_result($result);
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="top.php">Топ Аніме</a>
+                    <a class="nav-link" href="#top">Топ Аніме</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contacts">Контакти</a>
@@ -105,10 +104,8 @@ mysqli_free_result($result);
         </div>
     </nav>
 </head>
-
 <body>
-    <!-- <img src="https://i.pinimg.com/originals/8b/c8/ca/8bc8ca5e5fed7d59a770ca218bd9dfe1.jpg" id="bg"> -->
-    <div class="container">
+<div class="container">
         <div class="row">
             <div class="col-8">
                 <table class="table" height="100%">
@@ -201,11 +198,8 @@ mysqli_free_result($result);
             </div>
         </div>
     </div>
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-</body>
 
-</html>
+</body>
