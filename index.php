@@ -12,7 +12,7 @@ if(!isset($_SESSION['loggedin'])){
     $_SESSION['loggedin'] = false;
 }
 
-$query = 'SELECT title, img_url, link from animes where aired = "2020" or "2021" limit 30';
+$query = 'SELECT title, img_url, link from animes where aired like "%2020" or "%2021" limit 30';
 $result = mysqli_query($_SESSION['conn'], $query);
 $animes = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -39,10 +39,6 @@ mysqli_free_result($result);
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#news">Новини</a>
-                </li>
-                
                 <li class="nav-item">
                     <a class="nav-link" href="top.php">Топ Аніме</a>
                 </li>
@@ -164,7 +160,7 @@ mysqli_free_result($result);
 
                 </table>
                 <div id="contacts">
-                    Contacts
+                    <p>Contacts</p>
                     hitexden@gmail.com
                 </div>
             </div>

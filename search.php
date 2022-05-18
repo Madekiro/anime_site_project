@@ -39,9 +39,6 @@ mysqli_free_result($result);
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#news">Новини</a>
-                </li>
                 
                 <li class="nav-item">
                     <a class="nav-link" href="top.php">Топ Аніме</a>
