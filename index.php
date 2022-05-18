@@ -11,10 +11,14 @@ $_SESSION['conn'] = new mysqli(
 if(!isset($_SESSION['loggedin'])){
     $_SESSION['loggedin'] = false;
 }
+$var = '%' . "2019" . '%';
 
-$query = 'SELECT title, img_url, link from animes where aired like "%2020" or "%2021" limit 30';
-$result = mysqli_query($_SESSION['conn'], $query);
-$animes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$stmt = $_SESSION['conn']->prepare("SELECT title, img_url, link from animes where aired like ?");
+$stmt->bind_param("s",$var);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$animes = $result->fetch_all(MYSQLI_ASSOC);
 
 mysqli_free_result($result);
 

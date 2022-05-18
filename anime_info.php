@@ -9,13 +9,12 @@ $_SESSION['conn'] = new mysqli(
     3306
 );
 $retrieve_title = $_GET['title'];
+$stmt = $_SESSION['conn']->prepare("SELECT img_url, aired, genre, episodes, score, synopsis FROM animes WHERE title=?");
+$stmt->bind_param("s",$_GET['title']);
+$stmt->execute();
+$result = $stmt->get_result();
 
-$query = "SELECT img_url, aired, genre, episodes, score, synopsis FROM animes WHERE title='";
-$query .= $retrieve_title;
-$query .= "'";
-
-$result = mysqli_query($_SESSION['conn'], $query);
-$animes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$animes = $result->fetch_all(MYSQLI_ASSOC);
 
 mysqli_free_result($result);
 
