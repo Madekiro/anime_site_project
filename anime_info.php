@@ -42,42 +42,7 @@ mysqli_free_result($result);
                 <li class="nav-item active">
                     <a class="nav-link" href="#news">Новини</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="genreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Жанри
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="genreDropdown">
-                        <div class="column">
-                            <a class=" dropdown-item" href="#genre">Бойові мистецтва</a>
-                            <a class="dropdown-item" href="#genre">Війна</a>
-                            <a class="dropdown-item" href="#genre">Драма</a>
-                            <a class="dropdown-item" href="#genre">Детектив</a>
-                            <a class="dropdown-item" href="#genre">Комедія</a>
-                        </div>
-                        <div class="column">
-                            <a class="dropdown-item" href="#genre">Меха</a>
-                            <a class="dropdown-item" href="#genre">Історія</a>
-                            <a class="dropdown-item" href="#genre">Містика</a>
-                            <a class="dropdown-item" href="#genre">Махо-шьоджо</a>
-                            <a class="dropdown-item" href="#genre">Музика</a>
-                        </div>
-                        <div class="column">
-                            <a class="dropdown-item" href="#genre">Повсякденність</a>
-                            <a class="dropdown-item" href="#genre">Пригоди</a>
-                            <a class="dropdown-item" href="#genre">Романтика</a>
-                            <a class="dropdown-item" href="#genre">Шьонен</a>
-                            <a class="dropdown-item" href="#genre">Шьоджо</a>
-
-                        </div>
-                        <div class="column">
-                            <a class="dropdown-item" href="#genre">Спорт</a>
-                            <a class="dropdown-item" href="#genre">Триллер</a>
-                            <a class="dropdown-item" href="#genre">Жахи</a>
-                            <a class="dropdown-item" href="#genre">Фентезі</a>
-                            <a class="dropdown-item" href="#genre">Школа</a>
-                        </div>
-                    </div>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="#top">Топ Аніме</a>
                 </li>
